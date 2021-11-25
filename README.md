@@ -1,5 +1,7 @@
 # parodyatlas
 这是生物信息学1801实训作业
+* **甲方**: 胡德华
+* **乙方**: 杨子奕｜黄海盛｜李阿鹏｜张彦哲｜巫肇曦｜郑思悦
 ## 甲方要求(无书面要求，描述不全)
 * 仿制[ProteinAtlas](https://www.proteinatlas.org/)
 * 使用TCGA、EGO、proteomics，并整合
