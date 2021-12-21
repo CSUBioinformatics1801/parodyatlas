@@ -16,13 +16,21 @@
 ### page草图  
 ![design](design/QQ20211221-0.png)
 ### 类关系图
-```mermaid{
+```mermaid
+{
     class待添加{
         pass
     }
 }
-
 ```
+
+### 前端框架
+```html
+{
+
+}
+```
+分工：`巫肇曦`,`黄海盛`
 ### GEO/TCGA组学数据集结构
 `data.json`文件相关说明
 ```js
@@ -33,3 +41,5 @@
     }
 }
 ```
+search word->spyder->parser->`.json`
+分工：`张彦哲`
