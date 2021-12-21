@@ -27,7 +27,10 @@
 ### 前端框架
 ```html
 {
-
+    Home:search
+    Members
+    xxxx cancer page
+    Instructions
 }
 ```
 分工：`巫肇曦`,`黄海盛`
@@ -51,4 +54,4 @@ search word->spyder->parser->`.json`
 入门xxx癌症的研究生新生  
 ## 功能
 1. 整合不同组学数据链接合集  
-2. 代表类型(citation高)的数据的概览  
+2. 代表类型(citation高)的数据的概览: 火山图
