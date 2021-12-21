@@ -4,7 +4,7 @@
 * **乙方**: 杨子奕｜黄海盛｜李阿鹏｜张彦哲｜巫肇曦｜郑思悦
 ## 甲方要求(无书面要求，描述不全)
 * 仿制[ProteinAtlas](https://www.proteinatlas.org/)
-* 使用TCGA、EGO、proteomics，并整合
+* 使用TCGA(tumer arrays)、GEO(mt-DNA/RNA)、proteomics，并整合
 * 能器官水平显示各类组学数据
 * 拥有非常炫酷的数据可视化和交互功能，包含搜索功能
 ## 甲方设计工作流
@@ -41,5 +41,14 @@
     }
 }
 ```
-search word->spyder->parser->`.json`
+search word->spyder->parser->`.json`  
 分工：`张彦哲`
+
+## 巧妇难为无米之炊
+* 假后台：预爬去数据（代表性数据集） 
+* 静态前端  
+## 定位人群
+入门xxx癌症的研究生新生  
+## 功能
+1. 整合不同组学数据链接合集  
+2. 代表类型(citation高)的数据的概览  
