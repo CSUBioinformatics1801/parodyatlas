@@ -28,11 +28,10 @@
 设计`杨子亦`  
 ```html
 {
-    Home:search
-    Members
+    "Home":"search"
+    "Members": Hudehua
     xxxx cancer page
-    Instructions
-}
+    "Instructions":"分析流程"
 ```
 分工：`巫肇曦`,`黄海盛`
 ### GEO/TCGA组学数据集结构
