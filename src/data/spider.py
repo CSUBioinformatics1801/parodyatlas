@@ -84,12 +84,12 @@ class Multi_Spider():
     def get_n_sample(self,paper_item)->int:
         return(re.findall(r'(?<=[ETYP]]">).*?(?= Sample)',str(paper_item))[0])
 
-    def geo2json(self,geo_paper:GEO_paper):
+    def geo2json(self,geo_papers:list):
         '''
-        这里把geo的paper逐一写到json里
+        TODO: json必须是一个对象，要一次性写完
         '''
         with open(self.json_path,"a+") as f:
-            f.write(json.json.dumps(geo_paper2dict(geo_paper),ensure_ascii=False, indent=4, separators=(',', ':')))
+            f.write(json.json.dumps(geo_papers),ensure_ascii=False, indent=4, separators=(',', ':')))
             f.write("\n")
             
     def GEO_search(self):
@@ -98,6 +98,7 @@ class Multi_Spider():
         req = sess.get(url = self.GEO_search_str, headers=headers, verify=False) 
         req.encoding = 'utf'
         bf = BeautifulSoup(req.content, 'lxml')
+        geo_papers=[] #list有s,别漏了
         for item in tqdm(bf.find_all(class_='rslt')):
             organism,exp_type=self.get_organism_and_exp_type(item)
             geo_paper=GEO_paper(
@@ -109,8 +110,14 @@ class Multi_Spider():
                 n_sample=self.get_n_sample(item)
             )
             del organism,exp_type
-            self.geo2json(geo_paper)
+            geo_papers.append(geo_paper2dict(geo_paper))
+        self.geo2json(geo_papers)
 
+    def TCGA_search(self):
+        '''
+        TODO:12.26再做
+        '''
+        pass
     
     def md_former(self):
         '''
@@ -122,6 +129,7 @@ class Multi_Spider():
         input_text=input("Young researcher, input field you wonna know: ")
         self.search_parser(input_text)
         self.GEO_search()
+        self.TCGA_search()
         print(f"Search is finished in {self.json_path}.")
 
 if __name__ == '__main__':
