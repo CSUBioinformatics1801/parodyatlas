@@ -1,0 +1,152 @@
+{
+    "title":"['High throughput gene expression data from MDA-MB-231 breast cancer cell lines with DAXX Knockdown and overexpression']",
+    "gseid":"GSE192420",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL20301",
+    "n_sample":"9"
+}
+{
+    "title":"['The isoxazole derivative of usnic acid induces ER stress response in breast cancer cells that leads to paraptosis-like cell death']",
+    "gseid":"GSE191314",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL16791",
+    "n_sample":"8"
+}
+{
+    "title":"['D2.0R mouse breast cancer cells cultured on stiff or soft ECM hydrogels']",
+    "gseid":"GSE189803",
+    "organism":"Mus musculus",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL19057",
+    "n_sample":"9"
+}
+{
+    "title":"['RNA-seq profiles of Tp53, Prkar1a and Axin1 edited basal organoids from a mouse model of breast cancer']",
+    "gseid":"GSE184070",
+    "organism":"Mus musculus",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL19057",
+    "n_sample":"9"
+}
+{
+    "title":"['NEK2 regulates triple negative breast cancer transcriptome.']",
+    "gseid":"GSE140803",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL16791",
+    "n_sample":"6"
+}
+{
+    "title":"['Transcriptional profiling of estrogen receptor fusion genes in breast cancer cell lines']",
+    "gseid":"GSE191158",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL24676",
+    "n_sample":"42"
+}
+{
+    "title":"['Comprehensive characterization of pre- and post-treatment samples of breast cancer reveal potential mechanisms of chemotherapy resistance']",
+    "gseid":"GSE191127",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL11154",
+    "n_sample":"40"
+}
+{
+    "title":"['Heat Shock Factor 1 (HSF1) regulates ESR1 action in breast cancer']",
+    "gseid":"GSE186004",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL18460",
+    "n_sample":"12"
+}
+{
+    "title":"['Identification of DNA methylation biomarkers for prediction of response to neoadjuvant chemotherapy in triple-negative breast cancer [EPIC Array]']",
+    "gseid":"GSE184159",
+    "organism":"Homo sapiens",
+    "exp_type":"Methylation profiling by array",
+    "platform":"GPL23976",
+    "n_sample":"63"
+}
+{
+    "title":"['Transcriptome analysis using RNA-seq in human mammary epithelial cells']",
+    "gseid":"GSE161627",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL21290",
+    "n_sample":"18"
+}
+{
+    "title":"['IRF3 binding regions in a basal-like breast cancer cell line, BT549 cells with Smad3 gene inactivation, transfected with polyI:C.']",
+    "gseid":"GSE188457",
+    "organism":"Homo sapiens",
+    "exp_type":"Genome binding/occupancy profiling by high throughput sequencing",
+    "platform":"GPL17303",
+    "n_sample":"3"
+}
+{
+    "title":"['IRF3 and Smad3 binding regions in a basal-like breast cancer cell line, BT549 transfected with polyI:C.']",
+    "gseid":"GSE178830",
+    "organism":"Homo sapiens",
+    "exp_type":"Genome binding/occupancy profiling by high throughput sequencing",
+    "platform":"GPL17303",
+    "n_sample":"5"
+}
+{
+    "title":"['PCW-1001, a novel pyrazole compound, modulates the expression of DNA damage response genes']",
+    "gseid":"GSE190883",
+    "organism":"Homo sapiens",
+    "exp_type":"Other",
+    "platform":"GPL27026",
+    "n_sample":"4"
+}
+{
+    "title":"['The Renin-Angiotensin System, High Inherent Aerobic Capacity, and Low Breast Cancer Risk']",
+    "gseid":"GSE190840",
+    "organism":"Rattus norvegicus",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL25947",
+    "n_sample":"58"
+}
+{
+    "title":"['MAL2 mediates the formation of stable HER2 signaling complexes within lipid raft-rich membrane protrusions in breast cancer cells.']",
+    "gseid":"GSE188513",
+    "organism":"Homo sapiens",
+    "exp_type":"Genome binding/occupancy profiling by high throughput sequencing",
+    "platform":"GPL18573",
+    "n_sample":"2"
+}
+{
+    "title":"['Transcription regulation and genome rewiring governing sensitivity and resistance to FOXM1 inhibition in breast cancer']",
+    "gseid":"GSE186683",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL20301",
+    "n_sample":"27"
+}
+{
+    "title":"['Transcription regulation and genome rewiring governing sensitivity and resistance to FOXM1 inhibition in breast cancer II']",
+    "gseid":"GSE186682",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL20301",
+    "n_sample":"18"
+}
+{
+    "title":"['Transcription regulation and genome rewiring governing sensitivity and resistance to FOXM1 inhibition in breast cancer I']",
+    "gseid":"GSE186679",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL20301",
+    "n_sample":"9"
+}
+{
+    "title":"['Ontogeny and Vulnerability of Lapatinib Drug-Tolerant Persisters in HER2-positive Breast Cancer']",
+    "gseid":"GSE156246",
+    "organism":"Homo sapiens",
+    "exp_type":"Expression profiling by high throughput sequencing",
+    "platform":"GPL20301",
+    "n_sample":"39"
+}
