@@ -15,11 +15,12 @@
 ## 乙方设计思路
 
 1. 用户输入搜索疾病  
-2. 程序处理用户搜索词，向各个疾病-组学数据库爬取部分数据集，并返回给用户选择  
-3. 用户选择合适数据集进行下载分析  
+2. 程序处理用户搜索词，向各个疾病-组学数据库爬取部分数据集，返回疾病简介，和数据集链接，给用户选择  
+3. 用户选择合适数据集，使用本程序的爬虫自动下载  
+4. 本程序的脚本自动解析数据，并作图分析  
 * **Search** -<font color=red>undone</font>-> **OMIM疾病简介** 
-* **Search** -<font color=green>done</font>-> **GEO Paper** -<font color=blue>user select</font>-> **GSE ID** -<font color=red>undone</font>-> **data analysis**<font color=red>undone</font>
-* **Search** -<font color=red>unable</font>-> **TCGA file names** -<font color=blue>user select</font>-> **manifests** -<font color=green>done</font>-> **data analysis**<font color=red>undone</font>
+* **Search** -<font color=green>done</font>-> **GEO Paper** -<font color=blue>user select</font>-> **GSE ID** -<font color=red>undone</font>-> **data analysis**(<font color=red>undone</font>)
+* **Search** -<font color=red>unable</font>-> **TCGA file names** -<font color=blue>user select</font>-> **manifests** -<font color=green>done</font>-> **data analysis**(<font color=red>undone</font>)
 
 ### page草图  
 ![design](design/QQ20211221-0.png)
