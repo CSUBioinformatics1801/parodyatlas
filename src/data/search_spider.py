@@ -7,9 +7,10 @@ import re
 import urlencode as ude
 from bs4 import BeautifulSoup
 import dataclasses
-from typing import Any, Mapping, Optional, Sequence, Tuple
+from typing import Tuple
 from tqdm import tqdm
 import json
+import os
 
 #TODO: import markdown
 '''
@@ -32,10 +33,15 @@ def geo_paper2dict(geo_paper:GEO_paper)->dict:
             "platform":geo_paper.platform,
             "n_sample":geo_paper.n_sample       
             }
+    
 class Multi_Spider():
     def __init__(self) -> None:
         self.GEO_link="https://www.ncbi.nlm.nih.gov/gds/?term="
-        self.json_path="test.json"
+        self.json_path="GEO_papers.json"
+        '''
+        TCGA规则：A%22%2C%22B + %22%5D%7D%7D%5D%7D, '%2C'=',','%22B'='"'
+        '''
+        self.TCGA_link="https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.primary_site%22%2C%22value%22%3A%5B"
         
     def is_chinese(string)->bool:
         '''
@@ -54,9 +60,39 @@ class Multi_Spider():
         '''
         if (self.is_chinese(input_text)==False):
             raise ValueError("Chinese search is not supported, try English instead.")
+        # GEO处理
         search_str=ude.urlencoder(text=input_text)
+        search_str.replace(',', '%2C')#这里有个不兼容','的bug22
         self.GEO_search_str=self.GEO_link+search_str
         
+        # TCGA处理
+        # segmentation & cleaning based on sites
+        punctuation=',./?;:"\'|`~，。？!！@#¥%'
+        self.TCGA_search_tags=re.sub(r'[{}]+'.format(punctuation),' ',input_text).strip().split()
+        self.TCGA_search_tags.remove("and")
+        self.TCGA_search_tags.remove("of")
+        # expample:['breast','cancer']
+        with open('primary_sites.txt','r') as f:
+            sites=set(f.readlines())
+        tokens=[]
+        # 搜索标准词表
+        self.TCGA_search_str=self.TCGA_link
+        for site in sites:
+            for tag in self.TCGA_search_tags:
+                if re.search(tag,site)!=None:
+                    tokens.append(site)
+        if tokens==list():
+            raise ValueError("No primary site is searched!")
+        else:
+            # 构建URL
+            for token in tokens:
+                token_encode=ude.urlencoder(text=token)
+                token_encode.replace(',', '%2C')
+                self.TCGA_search_str=self.TCGA_search_str+"\""+token_encode+"\""+"%2C"
+        self.TCGA_search_str=self.TCGA_search_str[0:len(self.TCGA_search_str)-3]+"%5D%7D%7D%5D%7D"
+        
+                
+    # --------------------------------这部分处理GEO Parser--------------------------------
     def get_title(self,paper_item)->str:
         title=str(re.findall(r'(?<=<a href="/geo/query/acc.cgi\?acc=GSE\d{6}" ref="ordinalpos=\d{1}&amp;ncbi_uid=\d{9}&amp;link_uid=\d{9}">).*?(?=</a></p>)',str(paper_item.find_all('p',class_='title')))).replace('</b>','').replace('<b>','')
         if len(title)==2:
@@ -95,11 +131,11 @@ class Multi_Spider():
     def GEO_search(self):
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'}
         sess = requests.Session()
-        req = sess.get(url = self.GEO_search_str, headers=headers, verify=False) 
-        req.encoding = 'utf'
-        bf = BeautifulSoup(req.content, 'lxml')
+        GEO_req = sess.get(url = self.GEO_search_str, headers=headers, verify=False) 
+        GEO_req.encoding = 'utf'
+        GEO_bf = BeautifulSoup(GEO_req.content, 'lxml')
         geo_papers=[] #list有s,别漏了
-        for item in tqdm(bf.find_all(class_='rslt')):
+        for item in tqdm(GEO_bf.find_all(class_='rslt')):
             organism,exp_type=self.get_organism_and_exp_type(item)
             geo_paper=GEO_paper(
                 title=self.get_title(item),
@@ -112,24 +148,39 @@ class Multi_Spider():
             del organism,exp_type
             geo_papers.append(geo_paper2dict(geo_paper))
         self.geo2json(geo_papers)
-
+        
+    #--------------------------------这部分处理TCGA Parser--------------------------------
     def TCGA_search(self):
         '''
-        TODO:12.26再做
+        TODO:TCGA会加载出来对应的4个
+        Scriptgdc-ng-plugins.js	
+        Scriptgdc-templates.js	
+        Scriptgdc-app-modified.js	
+        Scriptmain.368d15b4.js	
+        需要共同执行才能load出用来抓取的html内容，这部分长度太长，不方便用爬虫复现，暂时不做了
         '''
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'}
+        sess = requests.Session()
+        TCGA_req = sess.get(url = self.TCGA_search_str, headers=headers, verify=False) 
+        TCGA_req.encoding = 'utf'
+        TCGA_bf = BeautifulSoup(TCGA_req.content, 'lxml')
+        
         pass
+    
     
     def md_former(self):
         '''
         TODO: 日后做markdown用
         '''
         pass
-        
+    '''
+    还有一个Oncomine不方便做，需要ID登录
+    '''
     def main_flow(self):
         input_text=input("Young researcher, input field you wonna know: ")
         self.search_parser(input_text)
         self.GEO_search()
-        self.TCGA_search()
+        # self.TCGA_search()
         print(f"Search is finished in {self.json_path}.")
 
 if __name__ == '__main__':
