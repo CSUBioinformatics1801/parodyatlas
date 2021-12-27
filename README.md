@@ -16,8 +16,9 @@
 1. 用户输入搜索疾病  
 2. 程序处理用户搜索词，向各个疾病-组学数据库爬取部分数据集，并返回给用户选择
 3. 用户选择合适数据集进行下载分析
-* Search -(done)-> GEO Paper -(user)-> GSEID -(undone)> data analysis
-* Search -(unable)-> TCGA file names -(user)-> manifests -(done)-> data analysis
+* Search -<font color=green>done</font>-> GEO Paper -<font color=blue>user select</font>-> GSEID -<font color=red>undone</font>-> data analysis
+* Search -<font color=red>unable</font>-> TCGA file names -<font color=blue>user select</font>-> manifests -<font color=green>done</font>-> data analysis
+
 ### page草图  
 ![design](design/QQ20211221-0.png)
 ### 类关系图
