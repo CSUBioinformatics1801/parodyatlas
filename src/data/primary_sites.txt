@@ -1,0 +1,67 @@
+bronchus and lung
+breast
+hematopoietic and reticuloendothelial systems
+colon
+spinal cord, cranial nerves, and other parts of central nervous system
+ovary
+kidney
+unknown
+skin
+pancreas
+prostate gland
+uterus, nos
+thyroid gland
+bladder
+liver and intrahepatic bile ducts
+connective, subcutaneous and other soft tissues
+brain
+esophagus
+stomach
+other and ill-defined sites
+rectum
+cervix uteri
+adrenal gland
+corpus uteri
+other and ill-defined digestive organs
+heart, mediastinum, and pleura
+other and unspecified major salivary glands
+testis
+lymph nodes
+bones, joints and articular cartilage of other and unspecified sites
+peripheral nerves and autonomic nervous system
+retroperitoneum and peritoneum
+other and ill-defined sites in lip, oral cavity and pharynx
+not reported
+thymus
+small intestine
+bones, joints and articular cartilage of limbs
+gallbladder
+meninges
+anus and anal canal
+other and unspecified parts of biliary tract
+eye and adnexa
+other and unspecified urinary organs
+oropharynx
+other endocrine glands and related structures
+larynx
+other and unspecified female genital organs
+other and unspecified parts of tongue
+nasopharynx
+rectosigmoid junction
+vagina
+floor of mouth
+tonsil
+other and unspecified parts of mouth
+nasal cavity and middle ear
+penis
+hypopharynx
+base of tongue
+ureter
+gum
+vulva
+lip
+trachea
+palate
+other and ill-defined sites within respiratory system and intrathoracic organs
+other and unspecified male genital organs
+renal pelvis
