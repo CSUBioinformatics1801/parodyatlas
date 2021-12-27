@@ -7,8 +7,10 @@
 使用Git或GitHub Desktop等工具，关联你的GitHub ID，并把资源库pull到本地
 
 ## 3.使用你喜欢的编辑器编辑
-coding，并做好注释和commit
+coding，并做好注释
 
 ## 4.push到main
+解释commit的原因，修改部分等
 
 ## 直接在GitHub网页上修改，不推荐
+网页容易崩，编辑环境效率低下
