@@ -13,6 +13,11 @@
 * 要求**2022.01.23**前完成肝癌或者小细胞癌的案例，具体甲方未阐释
 * 要求19级继续开发其他disease
 ## 乙方设计思路
+1. 用户输入搜索疾病  
+2. 程序处理用户搜索词，向各个疾病-组学数据库爬取部分数据集，并返回给用户选择
+3. 用户选择合适数据集进行下载分析
+* Search -(done)-> GEO Paper -(user)-> GSEID -(undone)> data analysis
+* Search -(unable)-> TCGA file names -(user)-> manifests -(done)-> data analysis
 ### page草图  
 ![design](design/QQ20211221-0.png)
 ### 类关系图
@@ -34,17 +39,19 @@
     "Instructions":"分析流程"
 ```
 分工：`巫肇曦`,`黄海盛`
-### GEO/TCGA组学数据集结构
-`data.json`文件相关说明  
+### GEO组学数据集结构
+`GEO_papers.json`文件相关说明  
 ```js
 {
-    "name":"GEO",
-    "params":{
-        ...
-    }
+        "title":"['string, 文章标题']",
+        "gseid":"string, GSE号码，GEO+六位数字",
+        "organism":"string, 物种名，可能有多个",
+        "exp_type":"string, 实验类型",
+        "platform":"string, 实验品台，GPL+5位数字",
+        "n_sample":"int, 样本数"
 }
 ```
-search word->spyder->parser->`.json`  
+search word->spyder->parser->`.json`
 分工：`张彦哲`  
 
 ## 巧妇难为无米之炊
@@ -55,3 +62,8 @@ search word->spyder->parser->`.json`
 ## 功能
 1. 整合不同组学数据链接合集  
 2. 代表类型(citation高)的数据的概览: 火山图(`郑思悦`)  
+
+## Reference
+1. [tcga_downloader](https://github.com/zd200572/tcga_downloader)  
+2. [tcga_data_autodownload](https://github.com/murphy-mtt/bio/blob/543c1d69dbec5a263e199c0d5c02baf8d5ec9a15/download_tcga.py)  
+3. Liu, Xiangxiang, et al. "Elevated circulating miR-182 acts as a diagnostic biomarker for early colorectal cancer." Cancer Management and Research 10 (2018): 857.  
