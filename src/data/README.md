@@ -34,5 +34,8 @@ TCGA规范词表，由于TCGA的js过于复杂难以复现其中加载的部分�
 ## search_spider.py
 这是整合爬虫，爬omim，GEO，TCGA(失败)，返回json
 
+## [tcga_downloader]https://shiny.zd200572.com/tcga_downloader/
+用户从这个web下载TCGA数据的manifest  
+
 ## tcga_downloader.py
 这个从TCGA的manifest中下载数据，绝大部分code来自[chenwi](https://github.com/murphy-mtt/bio/blob/543c1d69dbec5a263e199c0d5c02baf8d5ec9a15/download_tcga.py)
