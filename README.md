@@ -18,7 +18,7 @@
 2. 程序处理用户搜索词，向各个疾病-组学数据库爬取部分数据集，返回疾病简介，和数据集链接，给用户选择  
 3. 用户选择合适数据集，使用本程序的爬虫自动下载  
 4. 本程序的脚本自动解析数据，并作图分析  
-* **Search** -<font color=red>undone</font>-> **OMIM疾病简介** 
+* **Search** -<font color=green>done</font>-> **OMIM疾病简介** 
 * **Search** -<font color=green>done</font>-> **GEO Paper** -<font color=blue>user select</font>-> **GSE ID** -<font color=red>undone</font>-> **data analysis**(<font color=red>undone</font>)
 * **Search** -<font color=red>unable</font>-> **TCGA file names** -<font color=blue>user select</font>-> **manifests** -<font color=green>done</font>-> **data analysis**(<font color=red>undone</font>)
 
@@ -44,17 +44,6 @@
 ```
 分工：`巫肇曦`,`黄海盛`
 ### GEO组学数据集结构
-`GEO_papers.json`文件相关说明  
-```js
-{
-        "title":"['string, 文章标题']",
-        "gseid":"string, GSE号码，GEO+六位数字",
-        "organism":"string, 物种名，可能有多个",
-        "exp_type":"string, 实验类型",
-        "platform":"string, 实验品台，GPL+5位数字",
-        "n_sample":"int, 样本数"
-}
-```
 search word->spyder->parser->`.json`
 分工：`张彦哲`  
 

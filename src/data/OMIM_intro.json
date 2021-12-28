@@ -1,0 +1,20 @@
+{
+    "source":"https://www.omim.org//entry/114480?search=%22breast%20cancer%22&amp;highlight=%22breast%20%28cancerous%7Ccancer%29%22",
+    "title":"BREAST CANCER",
+    "description":"Breast cancer (referring to mammary carcinoma, not mammary sarcoma) is histopathologically and almost certainly etiologically and genetically heterogeneous. Important genetic factors have been indicated by familial occurrence and bilateral involvement.",
+    "external_links":{
+        "UniProt":"https://www.uniprot.org/uniprot/?query=database:(type:mim 114480)&amp;sort=score",
+        "Clinical Trials":"https://clinicaltrials.gov/ct2/results?cond=BREAST CANCER",
+        "EuroGentest":"https://www.orpha.net/consor/cgi-bin/ClinicalLabs_Search_Simple.php?lng=EN&amp;LnkId=19054&amp;Typ=Pat",
+        "Gene Reviews":"https://www.ncbi.nlm.nih.gov/books/NBK1247/",
+        "Genetic Alliance":"https://www.diseaseinfosearch.org/x/8375",
+        "GTR":"https://www.ncbi.nlm.nih.gov/gtr/all/tests/?term=114480[mim]",
+        "GARD":"https://rarediseases.info.nih.gov/diseases/10415/disease",
+        "OrphaNet":"https://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=EN&amp;Expert=227535",
+        "MGI Mouse Phenotype":"http://www.informatics.jax.org/disease/114480",
+        "NCBI HomoloGene":"https://www.ncbi.nlm.nih.gov/homologene?Db=homologene&amp;DbFrom=omim&amp;Cmd=Link&amp;LinkName=omim_homologene&amp;LinkReadableName=HomoloGene&amp;IdsFromResult=114480",
+        "OMIA":"https://omia.org/results?search_type=advanced&amp;omia_id=001777,001990",
+        "Wormbase Disease Ontology":"https://wormbase.org/resources/disease/DOID:1612",
+        "Coriell":"https://catalog.coriell.org/Search?q=OmimNum:114480"
+    }
+}

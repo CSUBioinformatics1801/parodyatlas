@@ -37,11 +37,13 @@ def geo_paper2dict(geo_paper:GEO_paper)->dict:
 class Multi_Spider():
     def __init__(self) -> None:
         self.GEO_link="https://www.ncbi.nlm.nih.gov/gds/?term="
-        self.json_path="GEO_papers.json"
+        self.GEO_papers_json_path="GEO_papers.json"
         '''
         TCGA规则：A%22%2C%22B + %22%5D%7D%7D%5D%7D, '%2C'=',','%22B'='"'
         '''
         self.TCGA_link="https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.primary_site%22%2C%22value%22%3A%5B"
+        self.OMIM_link="https://www.omim.org/search?index=entry&start=1&limit=10&sort=score+desc%2C+prefix_sort+desc&search="
+        self.OMIM_json_path="OMIM_intro.json"
         
     def is_chinese(string)->bool:
         '''
@@ -56,10 +58,11 @@ class Multi_Spider():
     
     def search_parser(self,input_text:str):
         '''
-        这个函数预处理用户输入的搜索词，返回访问GEO用的URL
+        这个函数预处理用户输入的搜索词，返回访问用的URL
         '''
         if (self.is_chinese(input_text)==False):
             raise ValueError("Chinese search is not supported, try English instead.")
+        
         # GEO处理
         search_str=ude.urlencoder(text=input_text)
         search_str.replace(',', '%2C')#这里有个不兼容','的bug22
@@ -90,6 +93,11 @@ class Multi_Spider():
                 token_encode.replace(',', '%2C')
                 self.TCGA_search_str=self.TCGA_search_str+"\""+token_encode+"\""+"%2C"
         self.TCGA_search_str=self.TCGA_search_str[0:len(self.TCGA_search_str)-3]+"%5D%7D%7D%5D%7D"
+        
+        #OMIM处理
+        punctuation=',./?;:"\'|`~，。？!！@#¥%'
+        self.OMIM_search_str=re.sub(r'[{}]+'.format(punctuation),' ',input_text).strip().replace(" ", "+")
+        self.OMIM_search_str=self.OMIM_link+self.OMIM_search_str
         
                 
     # --------------------------------这部分处理GEO Parser--------------------------------
@@ -124,8 +132,8 @@ class Multi_Spider():
         '''
         TODO: json必须是一个对象，要一次性写完
         '''
-        with open(self.json_path,"a+") as f:
-            f.write(json.json.dumps(geo_papers),ensure_ascii=False, indent=4, separators=(',', ':')))
+        with open(self.GEO_papers_json_path,"a+") as f:
+            f.write(json.dumps(geo_papers,ensure_ascii=False, indent=4, separators=(',', ':')))
             f.write("\n")
             
     def GEO_search(self):
@@ -164,24 +172,55 @@ class Multi_Spider():
         TCGA_req = sess.get(url = self.TCGA_search_str, headers=headers, verify=False) 
         TCGA_req.encoding = 'utf'
         TCGA_bf = BeautifulSoup(TCGA_req.content, 'lxml')
-        
         pass
     
+    #--------------------------------这部分处理OMIM Parser--------------------------------
+    def OMIM_search(self):
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'}
+        sess = requests.Session()
+        OMIM_req = sess.get(url = self.OMIM_search_str, headers=headers, verify=False) 
+        OMIM_req.encoding = 'utf'
+        OMIM_bf = BeautifulSoup(OMIM_req.content, 'lxml')
+        # 默认第一个搜索结果
+        OMIM_entry_url="https://www.omim.org/"+re.findall(r'(?<=<a href=").*?(?=">)',str(OMIM_bf.find(class_="mim-result-font").find(['a'])))[0]
+        # 2度搜索
+        OMIM_req2 = sess.get(url = OMIM_entry_url, headers=headers, verify=False) 
+        OMIM_req2.encoding = 'utf'
+        OMIM_bf2 = BeautifulSoup(OMIM_req2.content, 'lxml')
+        OMIM_entry={}
+        OMIM_entry["source"]=OMIM_entry_url
+        OMIM_entry["title"]=OMIM_bf2.find_all(class_="mim-font")[1].text.strip()
+        OMIM_entry["description"]=OMIM_bf2.find_all(id="descriptionFold")[0].text.strip('\n')
+        link_names=[]
+        link_urls=[]
+        for item in OMIM_bf2.find_all(class_='panel-body small mim-panel-body'):
+            link_names+=str(item.text.strip()).split('\n')
+            link_urls+=re.findall(r'(?<=href=").*?(?=" )',str(item))
+        external_links={}
+        for i in range(0,len(link_names)):
+            external_links[link_names[i]]=link_urls[i]
+        OMIM_entry["external_links"]=external_links
+        with open(self.OMIM_json_path,"a+") as f:
+            f.write(json.dumps(OMIM_entry,ensure_ascii=False, indent=4, separators=(',', ':')))
+            f.write("\n")
+        
     
     def md_former(self):
         '''
         TODO: 日后做markdown用
         '''
         pass
+    
     '''
-    还有一个Oncomine不方便做，需要ID登录
+    还有一个Oncomine数据不错，但不方便做，需要ID登录
     '''
     def main_flow(self):
         input_text=input("Young researcher, input field you wonna know: ")
         self.search_parser(input_text)
         self.GEO_search()
+        self.OMIM_search()
         # self.TCGA_search()
-        print(f"Search is finished in {self.json_path}.")
+        print(f"Search is finished in {self.GEO_papers_json_path} and {self.OMIM_search}.")
 
 if __name__ == '__main__':
     ms=Multi_Spider()
