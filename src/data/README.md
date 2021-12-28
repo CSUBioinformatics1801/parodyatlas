@@ -1,7 +1,7 @@
 # data
 这里面主要是爬虫程序，由于甲方要求数据库，但未提供数据，故使用交互式爬虫进行爬取。由于甲方不提供后台，故爬虫皆非后台常驻。
 
-## GEO_papers.json
+## json格式
 从用户输入的search string爬取的GEO papers，格式见根目录  
 `GEO_papers.json`文件相关说明  
 ```js
@@ -13,7 +13,7 @@
         "platform":"string, 实验品台，GPL+5位数字",
         "n_sample":"int, 样本数"
 }  
-  
+注：文章URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=+【GSE号】  
 ```
 `OMIM_intro.json`文件相关说明  
 ```js
