@@ -48,7 +48,7 @@ search word->spyder->parser->`.json`
 分工：`张彦哲`  
 
 ## 数据分析
-GSEIDs/TCGA data -> results as 炫酷的静态图，预处理后的数据
+GSEIDs/TCGA data -> results as 炫酷的静态图，预处理后的数据  
 分工：`郑思悦`  
 
 ## 巧妇难为无米之炊
