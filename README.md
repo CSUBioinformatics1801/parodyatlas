@@ -33,8 +33,8 @@
 }
 ```
 
-### 前端框架
-设计`杨子亦`  
+### 前端
+设计：`杨子亦`  
 ```html
 {
     "Home":"search"
@@ -42,9 +42,10 @@
     xxxx cancer page
     "Instructions":"分析流程"
 ```
+realization  
 分工：`巫肇曦`,`黄海盛`
 ### 爬虫
-search word->spyder->parser->`.json`
+search word->spyder->parser->`.json`  
 分工：`张彦哲`  
 
 ## 数据分析
