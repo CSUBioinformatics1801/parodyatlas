@@ -43,9 +43,13 @@
     "Instructions":"分析流程"
 ```
 分工：`巫肇曦`,`黄海盛`
-### GEO组学数据集结构
+### 爬虫
 search word->spyder->parser->`.json`
 分工：`张彦哲`  
+
+## 数据分析
+GSEIDs/TCGA data -> results as 炫酷的静态图，预处理后的数据
+分工：`郑思悦`  
 
 ## 巧妇难为无米之炊
 * 假后台：预爬去数据（代表性数据集） 
