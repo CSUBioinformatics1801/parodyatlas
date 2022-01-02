@@ -23,11 +23,13 @@
           <v-col cols="4" class="search">
             <img height="100px" width="130px" class="search-tu" src="../assets/search.png">
             <v-text-field
+              v-model="keyword"
               label="请输入search"
               dense
               persistent-hint
               rounded
               solo-inverted
+              clearable
               background-color="grey"
               append-outer-icon="mdi-arrow-right-box"
               @click:append-outer="toresault"
@@ -40,8 +42,12 @@
 </template>
 
 <script>
-
 export default {
+  date(){
+    return{
+      key:this.keyword
+    }
+  },
   methods:{
     tosearch:function(){
       this.$router.push({
@@ -49,10 +55,18 @@ export default {
         });
     },
     toresault:function(){
+    if (this.keyword == '') {   //如果没有输入内容，不让往下执行
+      return;
+    }
+   
       this.$router.push({
-        path:'/resault'
+        name:'resault',
+        params:{
+          input:this.keyword
+        }
         });
-    },
+      },
+
     tomember:function(){
       this.$router.push({
         path:'/member'
