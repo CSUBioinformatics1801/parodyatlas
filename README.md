@@ -65,6 +65,9 @@ GSEIDs/TCGA data -> results as 炫酷的静态图，预处理后的数据
 1. 整合不同组学数据链接合集  
 2. 代表类型(citation高)的数据的概览: 火山图(`郑思悦`)  
 
+## 快速体验
+[github pages](https://csubioinformatics1801.github.io/parodyatlas/)
+
 ## Reference
 1. [tcga_downloader](https://github.com/zd200572/tcga_downloader)  
 2. [tcga_data_autodownload](https://github.com/murphy-mtt/bio/blob/543c1d69dbec5a263e199c0d5c02baf8d5ec9a15/download_tcga.py)  
