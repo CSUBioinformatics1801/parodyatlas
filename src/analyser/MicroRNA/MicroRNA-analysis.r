@@ -1,6 +1,8 @@
+
+
 # MicroRNA数据分析（GEO GSE66805 GSE95405&TCGA-LIHC）
 
-```R
+
 library(RColorBrewer)
 library(pheatmap) # 加载包
 library(ggplot2) # 加载包
@@ -13,10 +15,7 @@ data2<-read.csv('70-high.csv',header = TRUE, sep = ",", quote = "\"",dec = ".", 
 rownames(data2)<-data2[,1]
 data2<-data2[,-1]
 p1<-pheatmap(data2, scale = "column",color = colorRampPalette(c("navy", "white", "firebrick3"))(50),fontfamily= "Times New Roman",angle_col = 0)
-```
-![heat_map](GSE66805GSE95405heatmap.png)
 
-```R
 #火山图
 P<-ggplot(
   #设置数据
@@ -52,7 +51,6 @@ ggsave("mir-21.pdf",width = 22, height = 20, units = c("cm"))
 ```
 ![volcano_map](volcano_map.png)
 
-```R
 #生存曲线
 #先从数据库里找到符合各项参数要求的数据
 query <- GDCquery(project = "TCGA-LIHC", 
@@ -114,10 +112,7 @@ ggsurvplot(km_2, main = "Survival curve",
 Med=median(GENE$hsa.mir.21)
 mean=mean(GENE$hsa.mir.21)
 ggsurvplot (km_2)
-```
-![survival](survival.png)
 
-```R
 ggsurvplot (km)
-```
+
 
