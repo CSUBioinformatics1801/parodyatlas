@@ -56,7 +56,7 @@ search word->spyder->parser->`.json`
 GSEIDs/TCGA data -> results as 炫酷的静态图，预处理后的数据  
 分工：`郑思悦`  
 
-## 巧妇难为无米之炊
+## 缺少服务器与数据
 * 假后台：预爬去数据（代表性数据集） 
 * 静态前端  
 ## 定位人群
