@@ -31,12 +31,24 @@
 ![design](design/QQ20211221-0.png)
 ### 类关系图
 ```mermaid
-{
-    class待添加{
-        pass
-    }
-}
+graph TB
+    subgraph 爬虫
+    用户输入-->输入处理
+    输入处理-->GEO爬虫
+    输入处理-->OMIM爬虫
+    输入处理-->TCGA爬虫
+    end
+    subgraph 前端
+    GEO爬虫-->GSE-ID
+    OMIM爬虫-->OMIM简介
+    end
+    subgraph 数据分析
+    TCGA爬虫-->RNA-seq
+    TCGA爬虫-->miRNA
+    GSE-ID-->富集分析
+    end
 ```
+
 
 ### 前端
 设计：`杨子亦`  
